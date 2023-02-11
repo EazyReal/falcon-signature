@@ -51,7 +51,7 @@ LIBS = #-lm
 
 # =====================================================================
 
-OBJ = codec.o common.o falcon.o fft.o fpr.o keygen.o rng.o shake.o sign.o vrfy.o
+OBJ = codec.o common.o falcon.o fft.o fpr.o keygen.o rng.o shake.o sign.o vrfy.o utils.o
 
 all: test_falcon speed
 
@@ -64,13 +64,17 @@ test_falcon: test_falcon.o $(OBJ)
 speed: speed.o $(OBJ)
 	$(LD) $(LDFLAGS) -o speed speed.o $(OBJ) $(LIBS)
 
+utils.o: utils.c utils.h
+	$(CC) $(CFLAGS) -c -o utils.o utils.c
+
+
 codec.o: codec.c config.h inner.h fpr.h
 	$(CC) $(CFLAGS) -c -o codec.o codec.c
 
 common.o: common.c config.h inner.h fpr.h
 	$(CC) $(CFLAGS) -c -o common.o common.c
 
-falcon.o: falcon.c falcon.h config.h inner.h fpr.h
+falcon.o: falcon.c falcon.h config.h inner.h fpr.h utils.h
 	$(CC) $(CFLAGS) -c -o falcon.o falcon.c
 
 fft.o: fft.c config.h inner.h fpr.h
@@ -94,7 +98,7 @@ sign.o: sign.c config.h inner.h fpr.h
 speed.o: speed.c falcon.h
 	$(CC) $(CFLAGS) -c -o speed.o speed.c
 
-test_falcon.o: test_falcon.c falcon.h config.h inner.h fpr.h
+test_falcon.o: test_falcon.c falcon.h config.h inner.h fpr.h utils.h
 	$(CC) $(CFLAGS) -c -o test_falcon.o test_falcon.c
 
 vrfy.o: vrfy.c config.h inner.h fpr.h
