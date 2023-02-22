@@ -15,6 +15,18 @@ namespace po = boost::program_options;
 
 #define LOGN 9
 
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const std::vector<T> &v)
+{
+    // os << "[ ";
+    for (const auto &elem : v)
+    {
+        os << elem << " ";
+    }
+    // os << "]";
+    return os;
+}
+
 int main(int argc, const char *argv[])
 {
     po::options_description desc("Test C++ Falcon API");
@@ -49,6 +61,20 @@ int main(int argc, const char *argv[])
         // Do falcon signing
         vector<uint8_t> signature = falcon_sign(contentBytes,
                                                 keypair.privateKey);
+
+        // reserve the capicity for c...
+        std::vector<int16_t> s1(512, 0);
+        std::vector<int16_t> s2(512, 0);
+        std::vector<uint16_t> dpk(512, 0);
+        decode_falcon_stuff(signature, keypair.publicKey, contentBytes, s1, s2, dpk);
+        // deterministic sign => nonce = 0 len?
+        std::vector<uint8_t> empty_nonce = {};
+        std::vector<uint16_t> hm = falcon_hash(empty_nonce, contentBytes);
+
+        std::cout << s1 << std::endl
+                  << s2 << std::endl
+                  << dpk << std::endl
+                  << hm << std::endl;
 
         if (vm.count("t"))
         {
