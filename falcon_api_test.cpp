@@ -18,10 +18,10 @@ namespace po = boost::program_options;
 int main(int argc, const char *argv[])
 {
     po::options_description desc("Test C++ Falcon API");
-    desc.add_options()("help", "print help message")("n", po::value<uint32_t>(), "number of trials")("t", "test falcon correctness");
+    desc.add_options()("help", "print help message")("n", po::value<size_t>(), "number of trials")("t", "test falcon correctness");
 
     po::positional_options_description pod;
-    pod.add("n", 1);
+    pod.add("n", -1);
 
     po::variables_map vm;
     po::store(po::command_line_parser(argc, argv).options(desc).positional(pod).run(), vm);
