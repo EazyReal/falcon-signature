@@ -16,6 +16,8 @@ project(genfalcon
     DESCRIPTION "Executiable for generating falcon signatures in polynomial form"
     LANGUAGES CXX C)
 
+set(EXE_NAME genfalcon)
+
 # #
 aux_source_directory(./falcon_c DIR_C)
 aux_source_directory(. DIR_CPP)
@@ -25,10 +27,7 @@ aux_source_directory(. DIR_CPP)
 set(BOOST_ROOT "/opt/homebrew/Cellar/boost/1.81.0_1/")
 
 # include boost
-FIND_PACKAGE(Boost)
-INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
-ADD_DEFINITIONS("-DHAS_BOOST")
-LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
+FIND_PACKAGE(Boost 1.81 COMPONENTS program_options REQUIRED)
 
 IF(Boost_FOUND)
     MESSAGE(STATUS "Boost_LIB_VERSION = ${Boost_LIB_VERSION}.")
@@ -36,5 +35,9 @@ IF(Boost_FOUND)
     MESSAGE(STATUS "Boost_LIBRARY_DIRS = ${Boost_LIBRARY_DIRS}.")
 ENDIF()
 
-add_executable(${PROJECT_NAME} ${DIR_CPP} ${DIR_C})
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+
+# ADD_DEFINITIONS("-DHAS_BOOST")
+# LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
+add_executable(${EXE_NAME} ${DIR_CPP} ${DIR_C})
+target_link_libraries(${EXE_NAME} ${Boost_LIBRARIES})
