@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/genfalcon.dir/falcon_api.cpp.o"
+  "CMakeFiles/genfalcon.dir/falcon_api.cpp.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_api_test.cpp.o"
+  "CMakeFiles/genfalcon.dir/falcon_api_test.cpp.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/codec.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/codec.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/common.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/common.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/extract.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/extract.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/falcon.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/falcon.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/fft.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/fft.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/fpr.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/fpr.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/keygen.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/keygen.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/rng.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/rng.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/shake.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/shake.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/sign.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/sign.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/speed.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/speed.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/test_falcon.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/test_falcon.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/utils.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/utils.c.o.d"
+  "CMakeFiles/genfalcon.dir/falcon_c/vrfy.c.o"
+  "CMakeFiles/genfalcon.dir/falcon_c/vrfy.c.o.d"
+  "genfalcon"
+  "genfalcon.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C CXX)
+  include(CMakeFiles/genfalcon.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
