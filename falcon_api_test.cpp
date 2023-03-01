@@ -127,6 +127,6 @@ int main(int argc, const char *argv[])
     }
 
     // print if success
-    std::cout << "Success!" << std::endl;
+    // std::cout << "Success!" << std::endl;
     return 0;
 }
