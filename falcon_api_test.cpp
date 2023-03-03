@@ -69,7 +69,7 @@ int main(int argc, const char *argv[])
         decode_falcon_stuff(signature, keypair.publicKey, contentBytes, s1, s2, dpk);
         // deterministic sign => nonce = 0 len?
         std::vector<uint8_t> empty_nonce = {};
-        std::vector<uint16_t> hm = falcon_hash(empty_nonce, contentBytes);
+        std::vector<uint16_t> hm = falcon_hash(keypair.publicKey, contentBytes);
 
         std::cout << s1 << std::endl
                   << s2 << std::endl
