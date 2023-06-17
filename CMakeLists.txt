@@ -13,7 +13,7 @@ set(PROJECT_VERSION 0.1)
 
 # Description of project
 project(genfalcon
-    DESCRIPTION "Executiable for generating falcon signatures in polynomial form"
+    DESCRIPTION "Executable for generating falcon signatures in polynomial form"
     LANGUAGES CXX C)
 
 set(EXE_NAME genfalcon)
